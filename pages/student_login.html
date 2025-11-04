@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - UniPortal</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Funiportal1874back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header with University Branding -->
+    <header class="bg-surface shadow-sm border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- University Logo and Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center">
+                        <img src="C:\Users\Administrator\Desktop\university portal\images\elogo.png" class="w-6 h-6" alt="University Icon">
+                    </div>
+                    <div style="color: white;">
+    <h1 class="text-xl font-semibold" style="color: white;">ESSU PORTAL</h1>
+    <p class="text-xs" style="color: white;">Essu Arteche</p>
+</div>
+                </div>
+
+                <!-- Security Indicators -->
+                <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-1 text-success-600">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                        <span class="text-xs font-medium">SSL Secured</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <!-- Login Form Header -->
+            <div class="text-center">
+                <div class="mx-auto w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-text-primary">Student Login</h2>
+                <p class="mt-2 text-text-secondary">Access your academic portal</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="card p-8">
+                <form class="space-y-6" id="loginForm">
+                    <!-- Student ID Field -->
+                    <div>
+                        <label for="studentId" class="block text-sm font-medium text-text-primary mb-2">
+                            Student ID
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                                </svg>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="studentId" 
+                                name="studentId" 
+                                class="input-field w-full pl-10 pr-4 py-3" 
+                                placeholder="Enter your student ID"
+                                required
+                                autocomplete="username"
+                            >
+                        </div>
+                        <div id="studentIdError" class="mt-1 text-sm text-error hidden">
+                            Please enter a valid student ID
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
+                                </svg>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="input-field w-full pl-10 pr-12 py-3" 
+                                placeholder="Enter your password"
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button 
+                                type="button" 
+                                id="togglePassword"
+                                class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                            >
+                                <svg id="eyeIcon" class="w-5 h-5 text-text-secondary hover:text-text-primary transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="passwordError" class="mt-1 text-sm text-error hidden">
+                            Password must be at least 6 characters long
+                        </div>
+                    </div>
+
+                    <!-- Remember Me and Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                id="rememberMe" 
+                                name="rememberMe" 
+                                type="checkbox" 
+                                class="h-4 w-4 text-primary border-border rounded focus:ring-primary-500"
+                            >
+                            <label for="rememberMe" class="ml-2 block text-sm text-text-secondary">
+                                Remember me
+                            </label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="javascript:void(0)" class="font-medium text-primary hover:text-primary-700 transition-colors">
+                                Forgot password?
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sign In Button -->
+                    <div>
+                        <button 
+                            type="submit" 
+                            class="btn-primary w-full py-3 text-base font-medium"
+                            id="signInBtn"
+                        >
+                            <span id="signInText">Sign In</span>
+                            <svg id="loadingIcon" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="loginError" class="status-error p-3 rounded-lg text-sm hidden">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13,13H11V7H13M13,17H11V15H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                            <span id="loginErrorText">Invalid credentials. Please try again.</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        
+
+            <!-- Navigation Links (Hidden for demo purposes) -->
+            <div class="hidden">
+                <a href="student_dashboard.html">Dashboard</a>
+                <a href="course_management.html">Courses</a>
+                <a href="academic_records.html">Records</a>
+                <a href="student_services_hub.html">Services</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-border py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <div class="flex items-center space-x-4">
+                    <p class="text-sm text-text-secondary">© 2025 EssuPortal. All Rights Reserved.</p>
+                    <div class="flex items-center space-x-1 text-success-600">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                        <span class="text-xs">Accredited Institution</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Form Functionality -->
+    <script>
+        // Password visibility toggle
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            if (type === 'text') {
+                eyeIcon.innerHTML = '<path d="M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.09L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.76,7.13 11.37,7 12,7Z"/>';
+            } else {
+                eyeIcon.innerHTML = '<path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/>';
+            }
+        });
+
+        // Form validation and submission
+        const loginForm = document.getElementById('loginForm');
+        const signInBtn = document.getElementById('signInBtn');
+        const signInText = document.getElementById('signInText');
+        const loadingIcon = document.getElementById('loadingIcon');
+        const loginError = document.getElementById('loginError');
+        const loginErrorText = document.getElementById('loginErrorText');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const studentId = document.getElementById('studentId').value;
+            const password = document.getElementById('password').value;
+            
+            // Hide previous errors
+            loginError.classList.add('hidden');
+            document.getElementById('studentIdError').classList.add('hidden');
+            document.getElementById('passwordError').classList.add('hidden');
+            
+            // Basic validation
+            let isValid = true;
+            
+            if (!studentId || studentId.length < 3) {
+                document.getElementById('studentIdError').classList.remove('hidden');
+                isValid = false;
+            }
+            
+            if (!password || password.length < 6) {
+                document.getElementById('passwordError').classList.remove('hidden');
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Show loading state
+            signInText.textContent = 'Signing In...';
+            loadingIcon.classList.remove('hidden');
+            signInBtn.disabled = true;
+            
+            // Simulate authentication (replace with actual authentication)
+            setTimeout(() => {
+                // Mock authentication - in real app, this would be an API call
+                if (studentId === 'STU001' && password === 'password123') {
+                    // Success - redirect to dashboard
+                    window.location.href = 'student_dashboard.html';
+                } else {
+                    // Show error
+                    loginError.classList.remove('hidden');
+                    loginErrorText.textContent = 'Invalid student ID or password. Please try again.';
+                    
+                    // Reset button state
+                    signInText.textContent = 'Sign In';
+                    loadingIcon.classList.add('hidden');
+                    signInBtn.disabled = false;
+                }
+            }, 1500);
+        });
+
+        // Real-time validation
+        document.getElementById('studentId').addEventListener('input', function() {
+            if (this.value.length >= 3) {
+                document.getElementById('studentIdError').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            if (this.value.length >= 6) {
+                document.getElementById('passwordError').classList.add('hidden');
+            }
+        });
+
+        // Session timeout warning (demo)
+        let sessionTimeout;
+        function resetSessionTimeout() {
+            clearTimeout(sessionTimeout);
+            sessionTimeout = setTimeout(() => {
+                alert('Your session will expire in 5 minutes due to inactivity.');
+            }, 25 * 60 * 1000); // 25 minutes
+        }
+
+        // Reset timeout on user activity
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+            document.addEventListener(event, resetSessionTimeout, true);
+        });
+
+        // Initialize session timeout
+        resetSessionTimeout();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

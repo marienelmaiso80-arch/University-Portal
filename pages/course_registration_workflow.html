@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Workflow - UniPortal</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Funiportal1874back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header with Navigation -->
+    <header class="bg-surface shadow-sm border-b border-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- University Logo and Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg flex items-center justify-center">
+                          <div class="w-[60px] h-[60px] rounded-lg flex items-center justify-center">
+                            <img src="C:\Users\Administrator\Desktop\university portal\images\elogo.png" class="w-8 h-8" alt="University Icon">
+                          </div>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-semibold text-white">ESSU PORTAL</h1>
+                        <p class="text-xs text-white">Essu Arteche Campus</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="student_dashboard.html" class="text-white hover:text-white transition-colors">Dashboard</a>
+                    <a href="course_management.html" class="text-white font-medium border-b-2 border-primary pb-1">Courses</a>
+                    <a href="academic_records.html" class="text-white hover:text-white transition-colors">Records</a>
+                    <a href="student_services_hub.html" class="text-white hover:text-white transition-colors">Services</a>
+                </nav>
+
+                <!-- User Profile and Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <button class="relative p-2 text-white hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 bg-error text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+
+                    <!-- User Profile -->
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                            <span class="text-primary font-medium text-sm">HB</span>
+                        </div>
+                        <div class="hidden sm:block">
+                            <p class="text-sm font-medium text-white">Hya Baladad</p>
+                            <p class="text-xs text-white">STU001</p>
+                        </div>
+                    </div>
+
+                    <!-- Logout -->
+                    <a href="student_login.html" class="text-white hover:text-error transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-text-secondary" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden bg-surface border-t border-border hidden" id="mobileMenu">
+            <div class="px-4 py-2 space-y-1">
+                <a href="student_dashboard.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Dashboard</a>
+                <a href="course_management.html" class="block px-3 py-2 text-primary font-medium bg-primary-50 rounded-lg">Courses</a>
+                <a href="academic_records.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Records</a>
+                <a href="student_services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Services</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold text-text-primary">Course Registration Workflow</h2>
+                    <p class="mt-1 text-text-secondary">Complete your course enrollment for Spring 2026 semester</p>
+                </div>
+                <div class="mt-4 sm:mt-0">
+                    <div class="flex items-center space-x-2 text-sm text-text-secondary">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
+                        </svg>
+                        <span>Registration Deadline: Nov 15, 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Stepper -->
+        <div class="mb-8">
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <!-- Step 1 -->
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center w-10 h-10 bg-success-500 text-white rounded-full">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-3 hidden sm:block">
+                            <p class="text-sm font-medium text-success-600">Registration Planning</p>
+                            <p class="text-xs text-text-secondary">Requirements & Prerequisites</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 h-1 mx-4 bg-success-500"></div>
+
+                    <!-- Step 2 -->
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center w-10 h-10 bg-primary text-white rounded-full">
+                            <span class="text-sm font-bold">2</span>
+                        </div>
+                        <div class="ml-3 hidden sm:block">
+                            <p class="text-sm font-medium text-primary">Course Selection</p>
+                            <p class="text-xs text-text-secondary">Browse & Filter Courses</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 h-1 mx-4 bg-gray-300"></div>
+
+                    <!-- Step 3 -->
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center w-10 h-10 bg-gray-300 text-gray-600 rounded-full">
+                            <span class="text-sm font-bold">3</span>
+                        </div>
+                        <div class="ml-3 hidden sm:block">
+                            <p class="text-sm font-medium text-text-secondary">Schedule Validation</p>
+                            <p class="text-xs text-text-secondary">Conflict Resolution</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 h-1 mx-4 bg-gray-300"></div>
+
+                    <!-- Step 4 -->
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center w-10 h-10 bg-gray-300 text-gray-600 rounded-full">
+                            <span class="text-sm font-bold">4</span>
+                        </div>
+                        <div class="ml-3 hidden sm:block">
+                            <p class="text-sm font-medium text-text-secondary">Confirmation</p>
+                            <p class="text-xs text-text-secondary">Final Enrollment</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Step Indicators -->
+                <div class="sm:hidden mt-4">
+                    <div class="text-center">
+                        <p class="text-sm font-medium text-primary">Step 2 of 4: Course Selection</p>
+                        <div class="mt-2 w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Registration Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Course Selection -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Course Filters -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Course Filters</h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Department Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Department</label>
+                            <select class="input-field w-full" id="departmentFilter">
+                                <option value="">All Departments</option>
+                                <option value="CS">Computer Science</option>
+                                <option value="MATH">Mathematics</option>
+                                <option value="PHYS">Physics</option>
+                                <option value="ENG">Engineering</option>
+                                <option value="BIO">Biology</option>
+                            </select>
+                        </div>
+
+                        <!-- Credit Hours Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Credit Hours</label>
+                            <select class="input-field w-full" id="creditFilter">
+                                <option value="">Any Credits</option>
+                                <option value="1">1 Credit</option>
+                                <option value="2">2 Credits</option>
+                                <option value="3">3 Credits</option>
+                                <option value="4">4 Credits</option>
+                            </select>
+                        </div>
+
+                        <!-- Time Slot Filter -->
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Time Slot</label>
+                            <select class="input-field w-full" id="timeFilter">
+                                <option value="">Any Time</option>
+                                <option value="morning">Morning (8-12 PM)</option>
+                                <option value="afternoon">Afternoon (12-5 PM)</option>
+                                <option value="evening">Evening (5-9 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="mt-4">
+                        <label class="block text-sm font-medium text-text-primary mb-2">Search Courses</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="w-5 h-5 text-text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
+                                </svg>
+                            </div>
+                            <input type="text" class="input-field w-full pl-10" placeholder="Search by course code, title, or instructor..." id="courseSearch">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Available Courses -->
+                <div class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary">Available Courses</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-sm text-text-secondary">Found: <span class="font-medium">12 courses</span></span>
+                            <select class="text-sm border border-border rounded px-2 py-1" id="sortBy">
+                                <option value="title">Sort by Title</option>
+                                <option value="credits">Sort by Credits</option>
+                                <option value="seats">Sort by Availability</option>
+                                <option value="rating">Sort by Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4" id="courseList">
+                        <!-- Course Card 1 -->
+                        <div class="course-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow" data-course-id="CS301">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <h4 class="font-semibold text-text-primary">CS301 - Advanced Data Structures</h4>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-success-100 text-success-800">
+                                            Available
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-2">Advanced study of data structures and algorithms including trees, graphs, and hashing techniques.</p>
+                                    
+                                    <div class="flex flex-wrap items-center gap-4 text-xs text-text-secondary mb-3">
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                                            </svg>
+                                            3 Credits
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
+                                            </svg>
+                                            MWF 10:00-11:00 AM
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                                            </svg>
+                                            Dr. Sarah Chen
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                                            </svg>
+                                            4.7/5.0
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center text-xs text-text-secondary">
+                                            <span class="font-medium text-success-600">18 seats available</span> / 30 total
+                                        </div>
+                                        <div class="flex items-center text-xs text-warning-600">
+                                            Prerequisites: CS201, MATH150
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col items-end space-y-2 ml-4">
+                                    <button class="btn-primary px-4 py-2 text-sm add-to-cart" data-course-id="CS301">
+                                        Add to Cart
+                                    </button>
+                                    <button class="text-primary hover:text-primary-700 text-sm transition-colors view-details" data-course-id="CS301">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Card 2 -->
+                        <div class="course-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow" data-course-id="MATH301">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <h4 class="font-semibold text-text-primary">MATH301 - Linear Algebra</h4>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-warning-100 text-warning-800">
+                                            Waitlist Available
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-2">Vector spaces, linear transformations, eigenvalues and eigenvectors, and applications.</p>
+                                    
+                                    <div class="flex flex-wrap items-center gap-4 text-xs text-text-secondary mb-3">
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                                            </svg>
+                                            3 Credits
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
+                                            </svg>
+                                            TTh 2:00-3:30 PM
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                                            </svg>
+                                            Prof. Michael Johnson
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                                            </svg>
+                                            4.5/5.0
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center text-xs text-text-secondary">
+                                            <span class="font-medium text-error">Full</span> - <span class="text-warning-600">5 on waitlist</span>
+                                        </div>
+                                        <div class="flex items-center text-xs text-warning-600">
+                                            Prerequisites: MATH200
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col items-end space-y-2 ml-4">
+                                    <button class="btn-secondary px-4 py-2 text-sm add-to-waitlist" data-course-id="MATH301">
+                                        Join Waitlist
+                                    </button>
+                                    <button class="text-primary hover:text-primary-700 text-sm transition-colors view-details" data-course-id="MATH301">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Card 3 -->
+                        <div class="course-card border border-border rounded-lg p-4 hover:shadow-md transition-shadow" data-course-id="PHYS201">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-2 mb-2">
+                                        <h4 class="font-semibold text-text-primary">PHYS201 - Modern Physics</h4>
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-success-100 text-success-800">
+                                            Available
+                                        </span>
+                                    </div>
+                                    <p class="text-sm text-text-secondary mb-2">Introduction to quantum mechanics, relativity, and atomic physics.</p>
+                                    
+                                    <div class="flex flex-wrap items-center gap-4 text-xs text-text-secondary mb-3">
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                                            </svg>
+                                            4 Credits
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
+                                            </svg>
+                                            MWF 1:00-2:00 PM + Lab W 3:00-5:00 PM
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/>
+                                            </svg>
+                                            Dr. Emily Rodriguez
+                                        </span>
+                                        <span class="flex items-center">
+                                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                                            </svg>
+                                            4.8/5.0
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center text-xs text-text-secondary">
+                                            <span class="font-medium text-success-600">8 seats available</span> / 20 total
+                                        </div>
+                                        <div class="flex items-center text-xs text-warning-600">
+                                            Prerequisites: PHYS101, MATH200
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex flex-col items-end space-y-2 ml-4">
+                                    <button class="btn-primary px-4 py-2 text-sm add-to-cart" data-course-id="PHYS201">
+                                        Add to Cart
+                                    </button>
+                                    <button class="text-primary hover:text-primary-700 text-sm transition-colors view-details" data-course-id="PHYS201">
+                                        View Details
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center mt-6">
+                        <button class="btn-secondary px-6 py-2" id="loadMoreCourses">
+                            Load More Courses
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Registration Cart & Info -->
+            <div class="space-y-6">
+                <!-- Registration Cart -->
+                <div class="card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-text-primary">Registration Cart</h3>
+                        <span class="bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center" id="cartCount">0</span>
+                    </div>
+                    
+                    <div id="cartItems" class="space-y-3">
+                        <div class="text-center py-8 text-text-secondary">
+                            <svg class="w-12 h-12 mx-auto mb-3 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5H5.21L4.27,3H1M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"/>
+                            </svg>
+                            <p class="text-sm">Your cart is empty</p>
+                            <p class="text-xs">Add courses to begin registration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4 border-t border-border mt-4 hidden" id="cartSummary">
+                        <div class="flex items-center justify-between text-sm mb-2">
+                            <span class="text-text-secondary">Total Credits:</span>
+                            <span class="font-medium text-text-primary" id="totalCredits">0</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm mb-4">
+                            <span class="text-text-secondary">Credit Limit:</span>
+                            <span class="text-text-secondary">18 credits max</span>
+                        </div>
+                        <button class="btn-primary w-full" id="proceedToValidation" disabled>
+                            Proceed to Validation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Academic Standing -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Academic Standing</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Current GPA</span>
+                            <span class="text-sm font-medium text-success-600">3.85</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Credits Completed</span>
+                            <span class="text-sm font-medium text-text-primary">78 / 120</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-text-secondary">Academic Status</span>
+                            <span class="text-sm font-medium text-success-600">Good Standing</span>
+                        </div>
+                        
+                        <div class="pt-3 border-t border-border">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-text-secondary">Degree Progress</span>
+                                <span class="text-xs text-text-secondary">65%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prerequisites Checker -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Prerequisites Checker</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-2 text-sm">
+                            <svg class="w-4 h-4 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                            </svg>
+                            <span class="text-text-primary">CS201 - Data Structures</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm">
+                            <svg class="w-4 h-4 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                            </svg>
+                            <span class="text-text-primary">MATH150 - Calculus I</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm">
+                            <svg class="w-4 h-4 text-warning-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                            </svg>
+                            <span class="text-text-primary">MATH250 - Calculus II</span>
+                            <span class="text-xs text-warning-600">(In Progress)</span>
+                        </div>
+                        <div class="flex items-center space-x-2 text-sm">
+                            <svg class="w-4 h-4 text-error" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                            </svg>
+                            <span class="text-text-primary">CS350 - Algorithms</span>
+                            <span class="text-xs text-error">(Not Met)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Degree Requirements -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Degree Requirements</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm text-text-secondary">Core CS Courses</span>
+                                <span class="text-xs text-text-secondary">8/12</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 67%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm text-text-secondary">Mathematics</span>
+                                <span class="text-xs text-text-secondary">6/8</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-warning h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm text-text-secondary">General Education</span>
+                                <span class="text-xs text-text-secondary">12/12</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-success h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Quick Actions</h3>
+                    
+                    <div class="space-y-2">
+                        <button class="btn-secondary w-full text-sm" id="saveCart">
+                            Save Cart as Draft
+                        </button>
+                        <button class="text-primary hover:text-primary-700 text-sm w-full text-center transition-colors" id="compareSchedules">
+                            Compare Schedules
+                        </button>
+                        <button class="text-primary hover:text-primary-700 text-sm w-full text-center transition-colors" id="contactAdvisor">
+                            Contact Academic Advisor
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <div class="flex items-center space-x-4">
+                    <p class="text-sm text-white">© 2025 UniPortal. All Rights Reserved.</p>
+                    <div class="flex items-center space-x-1 text-success-600">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                        <span class="text-xs">Accredited Institution</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 text-sm text-white">
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Course Details Modal -->
+    <div id="courseModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-6 max-w-2xl w-full mx-4 max-h-96 overflow-y-auto">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg font-semibold text-text-primary" id="modalCourseTitle">Course Details</h3>
+                <button class="text-text-secondary hover:text-text-primary transition-colors" id="closeModal">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalContent">
+                <!-- Modal content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Registration Workflow -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Registration cart functionality
+        let registrationCart = [];
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const cartSummary = document.getElementById('cartSummary');
+        const totalCredits = document.getElementById('totalCredits');
+        const proceedBtn = document.getElementById('proceedToValidation');
+
+        // Course data
+        const courses = {
+            'CS301': { title: 'CS301 - Advanced Data Structures', credits: 3, instructor: 'Dr. Sarah Chen', time: 'MWF 10:00-11:00 AM' },
+            'MATH301': { title: 'MATH301 - Linear Algebra', credits: 3, instructor: 'Prof. Michael Johnson', time: 'TTh 2:00-3:30 PM' },
+            'PHYS201': { title: 'PHYS201 - Modern Physics', credits: 4, instructor: 'Dr. Emily Rodriguez', time: 'MWF 1:00-2:00 PM + Lab W 3:00-5:00 PM' }
+        };
+
+        // Add to cart functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('add-to-cart')) {
+                const courseId = e.target.getAttribute('data-course-id');
+                addToCart(courseId);
+            }
+            
+            if (e.target.classList.contains('add-to-waitlist')) {
+                const courseId = e.target.getAttribute('data-course-id');
+                addToWaitlist(courseId);
+            }
+            
+            if (e.target.classList.contains('view-details')) {
+                const courseId = e.target.getAttribute('data-course-id');
+                showCourseDetails(courseId);
+            }
+            
+            if (e.target.classList.contains('remove-from-cart')) {
+                const courseId = e.target.getAttribute('data-course-id');
+                removeFromCart(courseId);
+            }
+        });
+
+        function addToCart(courseId) {
+            if (!registrationCart.includes(courseId)) {
+                registrationCart.push(courseId);
+                updateCart();
+                showNotification(`${courses[courseId].title} added to cart!`, 'success');
+                
+                // Update button state
+                const button = document.querySelector(`button[data-course-id="${courseId}"].add-to-cart`);
+                button.textContent = 'Added';
+                button.disabled = true;
+                button.classList.remove('btn-primary');
+                button.classList.add('bg-success-100', 'text-success-800');
+            }
+        }
+
+        function addToWaitlist(courseId) {
+            showNotification(`Added to waitlist for ${courses[courseId].title}`, 'info');
+            
+            // Update button state
+            const button = document.querySelector(`button[data-course-id="${courseId}"].add-to-waitlist`);
+            button.textContent = 'On Waitlist';
+            button.disabled = true;
+            button.classList.remove('btn-secondary');
+            button.classList.add('bg-warning-100', 'text-warning-800');
+        }
+
+        function removeFromCart(courseId) {
+            const index = registrationCart.indexOf(courseId);
+            if (index > -1) {
+                registrationCart.splice(index, 1);
+                updateCart();
+                showNotification(`${courses[courseId].title} removed from cart`, 'info');
+                
+                // Reset button state
+                const button = document.querySelector(`button[data-course-id="${courseId}"]`);
+                if (button) {
+                    button.textContent = 'Add to Cart';
+                    button.disabled = false;
+                    button.classList.remove('bg-success-100', 'text-success-800');
+                    button.classList.add('btn-primary');
+                }
+            }
+        }
+
+        function updateCart() {
+            cartCount.textContent = registrationCart.length;
+            
+            if (registrationCart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-8 text-text-secondary">
+                        <svg class="w-12 h-12 mx-auto mb-3 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5H5.21L4.27,3H1M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"/>
+                        </svg>
+                        <p class="text-sm">Your cart is empty</p>
+                        <p class="text-xs">Add courses to begin registration</p>
+                    </div>
+                `;
+                cartSummary.classList.add('hidden');
+            } else {
+                let cartHTML = '';
+                let credits = 0;
+                
+                registrationCart.forEach(courseId => {
+                    const course = courses[courseId];
+                    credits += course.credits;
+                    cartHTML += `
+                        <div class="border border-border rounded p-3">
+                            <div class="flex items-start justify-between">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-text-primary">${course.title}</h4>
+                                    <p class="text-xs text-text-secondary mt-1">${course.instructor}</p>
+                                    <p class="text-xs text-text-secondary">${course.time}</p>
+                                    <div class="flex items-center mt-2">
+                                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary-100 text-primary">
+                                            ${course.credits} Credits
+                                        </span>
+                                    </div>
+                                </div>
+                                <button class="remove-from-cart text-error hover:text-error-700 transition-colors ml-2" data-course-id="${courseId}">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = cartHTML;
+                totalCredits.textContent = credits;
+                cartSummary.classList.remove('hidden');
+                
+                // Enable/disable proceed button based on credit limit
+                proceedBtn.disabled = credits === 0 || credits > 18;
+                if (credits > 18) {
+                    proceedBtn.textContent = 'Exceeds Credit Limit';
+                    proceedBtn.classList.remove('btn-primary');
+                    proceedBtn.classList.add('bg-error', 'text-white');
+                } else if (credits > 0) {
+                    proceedBtn.textContent = 'Proceed to Validation';
+                    proceedBtn.classList.remove('bg-error', 'text-white');
+                    proceedBtn.classList.add('btn-primary');
+                }
+            }
+        }
+
+        // Course details modal
+        const courseModal = document.getElementById('courseModal');
+        const modalCourseTitle = document.getElementById('modalCourseTitle');
+        const modalContent = document.getElementById('modalContent');
+        const closeModal = document.getElementById('closeModal');
+
+        function showCourseDetails(courseId) {
+            const course = courses[courseId];
+            modalCourseTitle.textContent = course.title;
+            
+            modalContent.innerHTML = `
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-medium text-text-primary mb-2">Course Description</h4>
+                        <p class="text-sm text-text-secondary">
+                            ${courseId === 'CS301' ? 'Advanced study of data structures and algorithms including trees, graphs, and hashing techniques. Focus on algorithm analysis and implementation of complex data structures.' : 
+                              courseId === 'MATH301' ? 'Vector spaces, linear transformations, eigenvalues and eigenvectors, and applications. Includes matrix operations and computational linear algebra.' :
+                              'Introduction to quantum mechanics, relativity, and atomic physics. Laboratory component includes modern physics experiments.'}
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-medium text-text-primary mb-2">Course Details</h4>
+                            <div class="text-sm text-text-secondary space-y-1">
+                                <p><strong>Credits:</strong> ${course.credits}</p>
+                                <p><strong>Instructor:</strong> ${course.instructor}</p>
+                                <p><strong>Schedule:</strong> ${course.time}</p>
+                                <p><strong>Location:</strong> ${courseId === 'CS301' ? 'Room 301, CS Building' : courseId === 'MATH301' ? 'Room 205, Math Building' : 'Room 101, Physics Building'}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-medium text-text-primary mb-2">Prerequisites</h4>
+                            <div class="text-sm text-text-secondary space-y-1">
+                                ${courseId === 'CS301' ? '<p>CS201, MATH150</p>' : 
+                                  courseId === 'MATH301' ? '<p>MATH200</p>' :
+                                  '<p>PHYS101, MATH200</p>'}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium text-text-primary mb-2">Instructor Rating & Reviews</h4>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <div class="flex items-center">
+                                ${[...Array(5)].map((_, i) => `
+                                    <svg class="w-4 h-4 ${i < 4 ? 'text-warning' : 'text-gray-300'}" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                                    </svg>
+                                `).join('')}
+                            </div>
+                            <span class="text-sm font-medium">4.7/5.0</span>
+                            <span class="text-xs text-text-secondary">(89 reviews)</span>
+                        </div>
+                        <p class="text-xs text-text-secondary">"Excellent professor with clear explanations and helpful office hours."</p>
+                    </div>
+                </div>
+            `;
+            
+            courseModal.classList.remove('hidden');
+            courseModal.classList.add('flex');
+        }
+
+        closeModal.addEventListener('click', function() {
+            courseModal.classList.add('hidden');
+            courseModal.classList.remove('flex');
+        });
+
+        // Course filtering
+        const departmentFilter = document.getElementById('departmentFilter');
+        const creditFilter = document.getElementById('creditFilter');
+        const timeFilter = document.getElementById('timeFilter');
+        const courseSearch = document.getElementById('courseSearch');
+        const sortBy = document.getElementById('sortBy');
+
+        [departmentFilter, creditFilter, timeFilter, sortBy].forEach(filter => {
+            filter.addEventListener('change', filterCourses);
+        });
+
+        courseSearch.addEventListener('input', filterCourses);
+
+        function filterCourses() {
+            // Simulate filtering - in real app this would filter the course list
+            showNotification('Courses filtered successfully', 'info');
+        }
+
+        // Save cart functionality
+        document.getElementById('saveCart').addEventListener('click', function() {
+            localStorage.setItem('registrationCart', JSON.stringify(registrationCart));
+            showNotification('Cart saved as draft', 'success');
+        });
+
+        // Load saved cart on page load
+        window.addEventListener('load', function() {
+            const savedCart = localStorage.getItem('registrationCart');
+            if (savedCart) {
+                registrationCart = JSON.parse(savedCart);
+                updateCart();
+                
+                // Update button states for saved items
+                registrationCart.forEach(courseId => {
+                    const button = document.querySelector(`button[data-course-id="${courseId}"].add-to-cart`);
+                    if (button) {
+                        button.textContent = 'Added';
+                        button.disabled = true;
+                        button.classList.remove('btn-primary');
+                        button.classList.add('bg-success-100', 'text-success-800');
+                    }
+                });
+            }
+        });
+
+        // Proceed to validation
+        proceedBtn.addEventListener('click', function() {
+            if (registrationCart.length > 0) {
+                showNotification('Proceeding to schedule validation...', 'info');
+                // In real app, this would navigate to the next step
+                setTimeout(() => {
+                    showNotification('Schedule validation complete! No conflicts detected.', 'success');
+                }, 2000);
+            }
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 ${
+                type === 'success' ? 'bg-success-100 text-success-800 border border-success-200' :
+                type === 'warning' ? 'bg-warning-100 text-warning-800 border border-warning-200' :
+                type === 'error' ? 'bg-error-100 text-error-800 border border-error-200' :
+                'bg-primary-100 text-primary-800 border border-primary-200'
+            }`;
+            
+            notification.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                    </svg>
+                    <span class="text-sm font-medium">${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Load more courses
+        document.getElementById('loadMoreCourses').addEventListener('click', function() {
+            showNotification('Loading additional courses...', 'info');
+            // Simulate loading more courses
+        });
+
+        // Contact advisor
+        document.getElementById('contactAdvisor').addEventListener('click', function() {
+            showNotification('Connecting you with your academic advisor...', 'info');
+        });
+
+        // Compare schedules
+        document.getElementById('compareSchedules').addEventListener('click', function() {
+            showNotification('Opening schedule comparison tool...', 'info');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

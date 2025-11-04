@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Records - UniPortal</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Funiportal1874back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header with University Branding -->
+    <header class="bg-surface shadow-sm border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- University Logo and Name -->
+                <div class="flex items-center space-x-3">
+    <div class="w-[60px] h-[60px] rounded-lg flex items-center justify-center">
+        <img src="C:\Users\Administrator\Desktop\university portal\images\elogo.png" class="w-8 h-8" alt="University Icon">
+    </div>
+                    <div style="color: white;">
+    <h1 class="text-xl font-semibold" style="color: white;">ESSU PORTAL</h1>
+    <p class="text-xs" style="color: white;">Essu Arteche Campus</p>
+</div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="student_dashboard.html" class="text-white hover:text-white transition-colors">Dashboard</a>
+                    <a href="course_management.html" class="text-white hover:text-white transition-colors">Courses</a>
+                    <a href="academic_records.html" class="text-white font-medium border-b-2 border-white pb-1">Academic Records</a>
+                    <a href="fee_payment_processing.html" class="text-white hover:text-white transition-colors">Payments</a>
+                    <a href="student_services_hub.html" class="text-white hover:text-white transition-colors">Services</a>
+                </nav>
+
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <button class="relative p-2 text-white hover:text-white transition-colors">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C17.3 4 20 6.7 20 10V11.8C20 12.6 20.2 13.4 20.6 14.1L22 16.7C22.2 17.1 22 17.6 21.6 17.8C21.2 18 20.7 17.8 20.5 17.4L19.1 14.8C18.4 13.7 18 12.4 18 11V10C18 7.8 16.2 6 14 6H10C7.8 6 6 7.8 6 10V11C6 12.4 5.6 13.7 4.9 14.8L3.5 17.4C3.3 17.8 2.8 18 2.4 17.8C2 17.6 1.8 17.1 2 16.7L3.4 14.1C3.8 13.4 4 12.6 4 11.8V10C4 6.7 6.7 4 10 4C10 2.9 10.9 2 12 2ZM10 20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20H10Z"/>
+                        </svg>
+                         <span class="absolute -top-1 -right-1 bg-error text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="relative">
+                        <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors">
+                            <img src="https://images.unsplash.com/photo-1695140986494-aff4c7e9ccb4" 
+                                 alt="Student profile picture" 
+                                 class="w-8 h-8 rounded-full object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <span class="text-sm font-medium text-white">Hya Baladad</span>
+                            <!-- Logout -->
+                                <a href="student_login.html" class="text-white hover:text-error transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"/>
+                                    </svg>
+                                </a>
+                    </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-text-primary">Academic Records</h1>
+                    <p class="mt-2 text-text-secondary">View your grades, transcripts, and academic progress</p>
+                </div>
+                <div class="mt-4 sm:mt-0 flex items-center space-x-3">
+                    <!-- Notification Indicator -->
+                    <div class="flex items-center space-x-2 bg-success-100 text-success-800 px-3 py-2 rounded-lg">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"/>
+                        </svg>
+                        <span class="text-sm font-medium">2 New Grades Posted</span>
+                    </div>
+                    <!-- Export Button -->
+                    <button class="btn-primary flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        <span>Export Records</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Academic Overview Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <!-- Current GPA -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Current GPA</p>
+                        <p class="text-2xl font-bold text-text-primary">3.75</p>
+                    </div>
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.46,13.97L5.82,21L12,17.27Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-success-600">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7,14L12,9L17,14H7Z"/>
+                        </svg>
+                        <span class="text-sm font-medium">+0.15 from last semester</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credits Completed -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Credits Completed</p>
+                        <p class="text-2xl font-bold text-text-primary">89/120</p>
+                    </div>
+                    <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="progress-bar h-2">
+                        <div class="progress-fill" style="width: 74%"></div>
+                    </div>
+                    <p class="text-xs text-text-secondary mt-1">74% Complete</p>
+                </div>
+            </div>
+
+            <!-- Academic Standing -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Academic Standing</p>
+                        <p class="text-lg font-bold text-success-600">Good Standing</p>
+                    </div>
+                    <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p class="text-xs text-text-secondary">Maintained for 4 semesters</p>
+                </div>
+            </div>
+
+            <!-- Graduation Progress -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Graduation Progress</p>
+                        <p class="text-2xl font-bold text-text-primary">74%</p>
+                    </div>
+                    <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p class="text-xs text-text-secondary">Expected: Spring 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabbed Content -->
+        <div class="card">
+            <!-- Tab Navigation -->
+            <div class="border-b border-border">
+                <nav class="flex space-x-8 px-6 pt-6" aria-label="Tabs">
+                    <button class="tab-button active" data-tab="grades">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                        </svg>
+                        Grades
+                    </button>
+                    <button class="tab-button" data-tab="transcript">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        Transcript
+                    </button>
+                    <button class="tab-button" data-tab="analytics">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M22,21H2V3H4V19H6V17H10V19H12V16H16V19H18V17H22V21Z"/>
+                        </svg>
+                        Progress Analytics
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Grades Tab Content -->
+            <div id="grades-tab" class="tab-content active p-6">
+                <!-- Semester Filter -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+                    <div class="flex items-center space-x-4">
+                        <select class="input-field">
+                            <option>Fall 2024</option>
+                            <option>Spring 2024</option>
+                            <option>Fall 2023</option>
+                            <option>Spring 2023</option>
+                        </select>
+                        <button class="btn-secondary text-sm">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9,12L11,14L15,10L20,15H4L9,12Z"/>
+                            </svg>
+                            Filter
+                        </button>
+                    </div>
+                    <div class="mt-4 sm:mt-0">
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium">
+                            Submit Grade Dispute
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grades Table -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-border">
+                        <thead class="bg-background">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Course</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Credits</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Grade</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Points</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-surface divide-y divide-border">
+                            <tr class="hover:bg-background transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <div class="h-10 w-10 rounded-lg bg-primary-100 flex items-center justify-center">
+                                                <span class="text-sm font-medium text-white">CS</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-white">Computer Science 301</div>
+                                            <div class="text-sm text-white">Data Structures & Algorithms</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">3</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-100 text-success-800">
+                                        A-
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">11.1</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-2 h-2 bg-success-400 rounded-full mr-2"></div>
+                                        <span class="text-sm text-white">Final</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-white hover:text-primary-700 mr-3">View Details</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-background transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <div class="h-10 w-10 rounded-lg bg-secondary-100 flex items-center justify-center">
+                                                <span class="text-sm font-medium text-white">MA</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-white">Mathematics 205</div>
+                                            <div class="text-sm text-white">Linear Algebra</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">4</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-100 text-success-800">
+                                        B+
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">13.2</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-2 h-2 bg-warning-400 rounded-full mr-2"></div>
+                                        <span class="text-sm text-white">Pending</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-white hover:text-primary-700 mr-3">View Details</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-background transition-colors">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 h-10 w-10">
+                                            <div class="h-10 w-10 rounded-lg bg-accent-100 flex items-center justify-center">
+                                                <span class="text-sm font-medium text-accent">EN</span>
+                                            </div>
+                                        </div>
+                                        <div class="ml-4">
+                                            <div class="text-sm font-medium text-white">English 102</div>
+                                            <div class="text-sm text-white">Academic Writing</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">3</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-100 text-success-800">
+                                        A
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-white">12.0</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 w-2 h-2 bg-success-400 rounded-full mr-2"></div>
+                                        <span class="text-sm text-white">Final</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                    <button class="text-white hover:text-primary-700 mr-3">View Details</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Semester Summary -->
+                <div class="mt-6 bg-background rounded-lg p-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary">Semester GPA</p>
+                            <p class="text-lg font-bold text-text-primary">3.82</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary">Credits Earned</p>
+                            <p class="text-lg font-bold text-text-primary">15</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary">Quality Points</p>
+                            <p class="text-lg font-bold text-text-primary">57.3</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-text-secondary">Class Rank</p>
+                            <p class="text-lg font-bold text-text-primary">42/156</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transcript Tab Content -->
+            <div id="transcript-tab" class="tab-content hidden p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+                    <div>
+                        <h3 class="text-lg font-medium text-text-primary">Official Academic Transcript</h3>
+                        <p class="text-sm text-text-secondary">Complete academic record with degree progress</p>
+                    </div>
+                    <div class="mt-4 sm:mt-0 flex items-center space-x-3">
+                        <button class="btn-secondary">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17,9H7V7H17M17,13H7V11H17M14,17H7V15H14M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"/>
+                            </svg>
+                            Print
+                        </button>
+                        <button class="btn-primary">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            </svg>
+                            Download PDF
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Student Information -->
+                <div class="bg-background rounded-lg p-6 mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-medium text-text-primary mb-3">Student Information</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Name:</span>
+                                    <span class="text-sm font-medium text-text-primary">Hya Baladad</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Student ID:</span>
+                                    <span class="text-sm font-medium text-text-primary">STU001</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Date of Birth:</span>
+                                    <span class="text-sm font-medium text-text-primary">July 20, 2003</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-text-primary mb-3">Academic Information</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Major:</span>
+                                    <span class="text-sm font-medium text-text-primary">Bachelor of Science and Information Technology</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Minor:</span>
+                                    <span class="text-sm font-medium text-text-primary">Mathematics</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Expected Graduation:</span>
+                                    <span class="text-sm font-medium text-text-primary">Spring 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Degree Requirements Progress -->
+                <div class="mb-6">
+                    <h4 class="font-medium text-text-primary mb-4">Degree Requirements Progress</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="card p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-text-primary">Core Requirements</span>
+                                <span class="text-sm text-success-600 font-medium">Complete</span>
+                            </div>
+                            <div class="progress-bar h-2">
+                                <div class="progress-fill bg-success-500" style="width: 100%"></div>
+                            </div>
+                            <p class="text-xs text-text-secondary mt-1">42/42 Credits</p>
+                        </div>
+                        <div class="card p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-text-primary">Major Requirements</span>
+                                <span class="text-sm text-warning-600 font-medium">In Progress</span>
+                            </div>
+                            <div class="progress-bar h-2">
+                                <div class="progress-fill bg-warning-500" style="width: 75%"></div>
+                            </div>
+                            <p class="text-xs text-text-secondary mt-1">36/48 Credits</p>
+                        </div>
+                        <div class="card p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-text-primary">Electives</span>
+                                <span class="text-sm text-text-secondary font-medium">Not Started</span>
+                            </div>
+                            <div class="progress-bar h-2">
+                                <div class="progress-fill" style="width: 35%"></div>
+                            </div>
+                            <p class="text-xs text-text-secondary mt-1">11/30 Credits</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic History Summary -->
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-border">
+                        <thead class="bg-background">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Term</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Credits Attempted</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Credits Earned</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Term GPA</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-text-secondary uppercase tracking-wider">Cumulative GPA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-surface divide-y divide-border">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-text-primary">Fall 2024</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">3.82</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">3.75</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-text-primary">Spring 2024</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">16</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">16</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">3.68</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">3.72</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-text-primary">Fall 2023</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">3.73</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-text-primary">3.71</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Progress Analytics Tab Content -->
+            <div id="analytics-tab" class="tab-content hidden p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- GPA Trend Chart -->
+                    <div class="card p-6">
+                        <h4 class="font-medium text-text-primary mb-4">GPA Trend Analysis</h4>
+                        <div class="h-64 bg-background rounded-lg flex items-center justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 400 200">
+                                <!-- Chart Grid -->
+                                <defs>
+                                    <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                                        <path d="M 40 0 L 0 0 0 20" fill="none" stroke="#E5E7EB" stroke-width="1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="400" height="200" fill="url(#grid)" />
+                                
+                                <!-- GPA Line -->
+                                <polyline fill="none" stroke="#1E40AF" stroke-width="3" 
+                                         points="50,150 100,140 150,145 200,135 250,130 300,125 350,120"/>
+                                
+                                <!-- Data Points -->
+                                <circle cx="50" cy="150" r="4" fill="#1E40AF"/>
+                                <circle cx="100" cy="140" r="4" fill="#1E40AF"/>
+                                <circle cx="150" cy="145" r="4" fill="#1E40AF"/>
+                                <circle cx="200" cy="135" r="4" fill="#1E40AF"/>
+                                <circle cx="250" cy="130" r="4" fill="#1E40AF"/>
+                                <circle cx="300" cy="125" r="4" fill="#1E40AF"/>
+                                <circle cx="350" cy="120" r="4" fill="#1E40AF"/>
+                                
+                                <!-- Labels -->
+                                <text x="50" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">F22</text>
+                                <text x="100" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">S23</text>
+                                <text x="150" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">F23</text>
+                                <text x="200" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">S24</text>
+                                <text x="250" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">F24</text>
+                                <text x="300" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">S25</text>
+                                <text x="350" y="190" text-anchor="middle" class="text-xs fill-current text-text-secondary">F25</text>
+                            </svg>
+                        </div>
+                        <div class="mt-4 flex items-center justify-between text-sm">
+                            <span class="text-text-secondary">Lowest: 3.45</span>
+                            <span class="text-text-secondary">Current: 3.75</span>
+                            <span class="text-text-secondary">Target: 3.80</span>
+                        </div>
+                    </div>
+
+                    <!-- Credit Distribution -->
+                    <div class="card p-6">
+                        <h4 class="font-medium text-text-primary mb-4">Credit Distribution</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-text-secondary">Core Courses</span>
+                                    <span class="text-sm font-medium text-text-primary">42 Credits</span>
+                                </div>
+                                <div class="progress-bar h-3">
+                                    <div class="progress-fill bg-primary" style="width: 47%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-text-secondary">Major Requirements</span>
+                                    <span class="text-sm font-medium text-text-primary">36 Credits</span>
+                                </div>
+                                <div class="progress-bar h-3">
+                                    <div class="progress-fill bg-secondary" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm text-text-secondary">Electives</span>
+                                    <span class="text-sm font-medium text-text-primary">11 Credits</span>
+                                </div>
+                                <div class="progress-bar h-3">
+                                    <div class="progress-fill bg-accent" style="width: 12%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-border">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm font-medium text-text-primary">Total Completed</span>
+                                <span class="text-lg font-bold text-text-primary">89/120</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Academic Milestones -->
+                    <div class="card p-6 lg:col-span-2">
+                        <h4 class="font-medium text-text-primary mb-4">Academic Milestones</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-success-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-text-primary">Freshman Year Completed</p>
+                                    <p class="text-xs text-text-secondary">Completed with 3.65 GPA • Spring 2023</p>
+                                </div>
+                                <div class="text-sm text-success-600 font-medium">Complete</div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-success-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-text-primary">Sophomore Year Completed</p>
+                                    <p class="text-xs text-text-secondary">Completed with 3.71 GPA • Spring 2024</p>
+                                </div>
+                                <div class="text-sm text-success-600 font-medium">Complete</div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-warning-100 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-warning-600" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A1.5,1.5 0 0,1 10.5,15.5A1.5,1.5 0 0,1 12,14A1.5,1.5 0 0,1 13.5,15.5A1.5,1.5 0 0,1 12,17M12,10.5A1.5,1.5 0 0,1 10.5,9A1.5,1.5 0 0,1 12,7.5A1.5,1.5 0 0,1 13.5,9A1.5,1.5 0 0,1 12,10.5Z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-text-primary">Junior Year</p>
+                                    <p class="text-xs text-text-secondary">Currently in progress • Expected Spring 2025</p>
+                                </div>
+                                <div class="text-sm text-warning-600 font-medium">74% Complete</div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex-shrink-0 w-8 h-8 bg-border rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17A1.5,1.5 0 0,1 10.5,15.5A1.5,1.5 0 0,1 12,14A1.5,1.5 0 0,1 13.5,15.5A1.5,1.5 0 0,1 12,17M12,10.5A1.5,1.5 0 0,1 10.5,9A1.5,1.5 0 0,1 12,7.5A1.5,1.5 0 0,1 13.5,9A1.5,1.5 0 0,1 12,10.5Z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-medium text-text-primary">Senior Year & Graduation</p>
+                                    <p class="text-xs text-text-secondary">Expected completion • Spring 2026</p>
+                                </div>
+                                <div class="text-sm text-text-secondary font-medium">Upcoming</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card p-6 text-center">
+                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,2A3,3 0 0,1 15,5V7H19A2,2 0 0,1 21,9V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V9A2,2 0 0,1 5,7H9V5A3,3 0 0,1 12,2M12,4A1,1 0 0,0 11,5V7H13V5A1,1 0 0,0 12,4Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium text-text-primary mb-2">Academic Advising</h3>
+                <p class="text-sm text-text-secondary mb-4">Schedule a meeting with your academic advisor</p>
+                <button class="btn-primary w-full">Schedule Meeting</button>
+            </div>
+            <div class="card p-6 text-center">
+                <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium text-text-primary mb-2">Degree Planning</h3>
+                <p class="text-sm text-text-secondary mb-4">Plan your remaining courses and graduation timeline</p>
+                <button class="btn-secondary w-full">Plan Degree</button>
+            </div>
+            <div class="card p-6 text-center">
+                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-medium text-text-primary mb-2">Request Transcript</h3>
+                <p class="text-sm text-text-secondary mb-4">Order official transcripts for employers or schools</p>
+                <button class="btn-primary w-full">Request Now</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <div class="flex items-center space-x-4">
+                    <p class="text-sm text-white">© 2025 UniPortal. All Rights Reserved.</p>
+                    <div class="flex items-center space-x-1 text-success-600">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                        <span class="text-xs">Accredited Institution</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 text-sm text-white">
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Terms of Service</a>
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Tab Functionality -->
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked tab and show corresponding content
+                button.classList.add('active');
+                const targetContent = document.getElementById(`${targetTab}-tab`);
+                if (targetContent) {
+                    targetContent.classList.remove('hidden');
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+
+        // Grade details expansion
+        document.querySelectorAll('button[onclick*="viewDetails"]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Mock grade details modal or expansion
+                alert('Grade details functionality would be implemented here');
+            });
+        });
+
+        // Export functionality
+        document.querySelector('button:contains("Export Records")').addEventListener('click', function() {
+            // Mock export functionality
+            const exportBtn = this;
+            const originalText = exportBtn.innerHTML;
+            
+            exportBtn.innerHTML = `
+                <svg class="animate-spin w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Exporting...
+            `;
+            exportBtn.disabled = true;
+            
+            setTimeout(() => {
+                exportBtn.innerHTML = originalText;
+                exportBtn.disabled = false;
+                alert('Academic records exported successfully!');
+            }, 2000);
+        });
+
+        // Real-time grade updates simulation
+        function simulateGradeUpdate() {
+            const notification = document.querySelector('.bg-success-100');
+            if (notification) {
+                notification.classList.add('animate-pulse');
+                setTimeout(() => {
+                    notification.classList.remove('animate-pulse');
+                }, 3000);
+            }
+        }
+
+        // Simulate grade update every 30 seconds (for demo)
+        setInterval(simulateGradeUpdate, 30000);
+
+        // Mobile responsive table handling
+        function handleMobileTable() {
+            const tables = document.querySelectorAll('table');
+            tables.forEach(table => {
+                if (window.innerWidth < 768) {
+                    table.classList.add('text-sm');
+                } else {
+                    table.classList.remove('text-sm');
+                }
+            });
+        }
+
+        window.addEventListener('resize', handleMobileTable);
+        handleMobileTable(); // Initial call
+
+        // Progress bar animations
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Animate progress bars on page load
+        window.addEventListener('load', () => {
+            setTimeout(animateProgressBars, 500);
+        });
+    </script>
+
+    <style>
+        .tab-button {
+            @apply flex items-center px-4 py-2 text-sm font-medium text-text-secondary border-b-2 border-transparent hover:text-text-primary hover:border-border transition-colors;
+        }
+        
+        .tab-button.active {
+            @apply text-primary border-primary;
+        }
+        
+        .tab-content {
+            @apply transition-all duration-300;
+        }
+        
+        .tab-content.active {
+            @apply animate-fade-in;
+        }
+    </style>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

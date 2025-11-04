@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Payment Processing - UniPortal</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Funiportal1874back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
+  <script type="module" src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
+  </head>
+<body class="bg-background min-h-screen">
+    <!-- Header with Navigation -->
+    <header class="bg-surface shadow-sm border-b border-border sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- University Logo and Name -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-[60px] h-[60px] rounded-lg flex items-center justify-center">
+                      <img src="C:\Users\Administrator\Desktop\university portal\images\elogo.png" class="w-8 h-8" alt="University Icon">
+                 </div>
+                    <div>
+                        <h1 class="text-xl font-semibold text-white">ESSU PORTAL</h1>
+                        <p class="text-xs text-white">Essu Arteche Campus</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="student_dashboard.html" class="text-white hover:text-white transition-colors">Dashboard</a>
+                    <a href="course_management.html" class="text-white hover:text-white transition-colors">Courses</a>
+                    <a href="academic_records.html" class="text-white hover:text-white transition-colors">Academic Records</a>
+                    <a href="fee_payment_processing.html" class="text-white font-medium border-b-2 border-white pb-1">Payments</a>
+                    <a href="student_services_hub.html" class="text-white hover:text-white transition-colors">Services</a>
+                    
+                </nav>
+
+                <!-- User Profile and Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Notifications -->
+                    <button class="relative p-2 text-white hover:text-white transition-colors">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C17.3 4 20 6.7 20 10V11.8C20 12.6 20.2 13.4 20.6 14.1L22 16.7C22.2 17.1 22 17.6 21.6 17.8C21.2 18 20.7 17.8 20.5 17.4L19.1 14.8C18.4 13.7 18 12.4 18 11V10C18 7.8 16.2 6 14 6H10C7.8 6 6 7.8 6 10V11C6 12.4 5.6 13.7 4.9 14.8L3.5 17.4C3.3 17.8 2.8 18 2.4 17.8C2 17.6 1.8 17.1 2 16.7L3.4 14.1C3.8 13.4 4 12.6 4 11.8V10C4 6.7 6.7 4 10 4C10 2.9 10.9 2 12 2ZM10 20C10 21.1 10.9 22 12 22C13.1 22 14 21.1 14 20H10Z"/>
+                        </svg>
+                         <span class="absolute -top-1 -right-1 bg-error text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </button>
+                    <div class="relative">
+                        <button class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors">
+                            <img src="https://images.unsplash.com/photo-1695140986494-aff4c7e9ccb4" 
+                                 alt="Student profile picture" 
+                                 class="w-8 h-8 rounded-full object-cover"
+                                 onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;">
+                            <span class="text-sm font-medium text-white">Hya Baladad</span>
+                            <!-- Logout -->
+                                <a href="student_login.html" class="text-white hover:text-error transition-colors">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z"/>
+                                    </svg>
+                                </a>
+                    </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-text-secondary" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden bg-surface border-t border-border hidden" id="mobileMenu">
+            <div class="px-4 py-2 space-y-1">
+                <a href="student_dashboard.html" class="block px-3 py-2 text-white font-medium bg-primary-50 rounded-lg">Dashboard</a>
+                <a href="course_management.html" class="block px-3 py-2 text-text-secondary hover:text-white hover:bg-gray-50 rounded-lg transition-colors">Courses</a>
+                <a href="academic_records.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Records</a>
+                <a href="fee_payment_processing.html" class="block px-3 py-2 text-primary font-medium bg-primary-50 rounded-lg">Payments</a>
+                <a href="student_services_hub.html" class="block px-3 py-2 text-text-secondary hover:text-primary hover:bg-gray-50 rounded-lg transition-colors">Services</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Payment Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Payment Header -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold text-text-primary">Fee Payment Processing</h2>
+                    <p class="mt-1 text-text-secondary">Secure payment processing for university fees and services</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Payment Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <!-- Outstanding Balance -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Outstanding Balance</p>
+                        <p class="text-2xl font-bold text-error">₱3,245.50</p>
+                        <p class="text-xs text-error-600 flex items-center mt-1">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                            </svg>
+                            Payment overdue by 5 days
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Available Credit -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Available Credit</p>
+                        <p class="text-2xl font-bold text-success-600">₱1,500.00</p>
+                        <p class="text-xs text-success-600 flex items-center mt-1">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                            </svg>
+                            Financial aid applied
+                        </p>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Payment Plan Status -->
+            <div class="card p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-text-secondary">Payment Plan</p>
+                        <p class="text-2xl font-bold text-primary">Active</p>
+                        <p class="text-xs text-primary flex items-center mt-1">
+                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                            </svg>
+                            ₱432.19/month
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19,3H18V1H16V3H8V1H6V3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Payment Interface -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column - Outstanding Fees and Payment Options -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Outstanding Fees Section -->
+                <div class="card p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-text-primary">Outstanding Fees</h3>
+                        <button class="text-primary hover:text-primary-700 text-sm font-medium transition-colors" id="selectAllBtn">
+                            Select All
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Fee Item 1 -->
+                        <div class="fee-item p-4 bg-error-50 rounded-lg border border-error-200">
+                            <div class="flex items-center space-x-4">
+                                <input type="checkbox" class="fee-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary" value="1850.00" data-fee-id="tuition" checked>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-text-primary">Fall 2025 Tuition</h4>
+                                        <span class="text-lg font-bold text-error">₱1,850.00</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm text-text-secondary mt-1">
+                                        <span>Due: October 15, 2025</span>
+                                        <span class="text-error-600 font-medium flex items-center">
+                                            <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                                            </svg>
+                                            17 days overdue
+                                        </span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-error-100 text-error-800">
+                                            High Priority
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fee Item 2 -->
+                        <div class="fee-item p-4 bg-warning-50 rounded-lg border border-warning-200">
+                            <div class="flex items-center space-x-4">
+                                <input type="checkbox" class="fee-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary" value="895.50" data-fee-id="housing" checked>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-text-primary">Housing & Meals</h4>
+                                        <span class="text-lg font-bold text-warning-600">₱895.50</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm text-text-secondary mt-1">
+                                        <span>Due: November 1, 2025</span>
+                                        <span class="text-warning-600 font-medium">Due Today</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-warning-100 text-warning-800">
+                                            Medium Priority
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fee Item 3 -->
+                        <div class="fee-item p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <div class="flex items-center space-x-4">
+                                <input type="checkbox" class="fee-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary" value="250.00" data-fee-id="lab">
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-text-primary">Computer Lab Fee</h4>
+                                        <span class="text-lg font-bold text-text-primary">₱250.00</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm text-text-secondary mt-1">
+                                        <span>Due: November 15, 2025</span>
+                                        <span class="text-success-600 font-medium">14 days remaining</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                            Standard
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fee Item 4 -->
+                        <div class="fee-item p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <div class="flex items-center space-x-4">
+                                <input type="checkbox" class="fee-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary" value="250.00" data-fee-id="library">
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between">
+                                        <h4 class="font-medium text-text-primary">Library Fine</h4>
+                                        <span class="text-lg font-bold text-text-primary">₱25.00</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm text-text-secondary mt-1">
+                                        <span>Due: December 1, 2025</span>
+                                        <span class="text-success-600 font-medium">30 days remaining</span>
+                                    </div>
+                                    <div class="mt-2">
+                                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                                            Low Priority
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Late Fees Notice -->
+                        <div class="p-4 bg-error-50 border border-error-200 rounded-lg">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-error-600 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                                </svg>
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-medium text-error-800">Late Fee Applied</h4>
+                                    <p class="text-xs text-error-600 mt-1">A ₱225.00 late fee has been applied to overdue tuition payments. Payment plans may be available to avoid additional charges.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Section -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Payment Methods</h3>
+                    
+                    <div class="space-y-4">
+                        <!-- Payment Method Selector -->
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <button class="payment-method active p-4 border-2 border-primary rounded-lg bg-primary-50 text-primary transition-all" data-method="card">
+                                <div class="flex flex-col items-center space-y-2">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,18H4V12H20V18M20,8H4V6H20V8Z"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">Credit/Debit Card</span>
+                                </div>
+                            </button>
+                            
+                            <button class="payment-method p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary-50 hover:text-primary transition-all" data-method="bank">
+                                <div class="flex flex-col items-center space-y-2">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M11.5,1L2,6V8H21V6M16,10V17H19V19H5V17H8V10H10V17H14V10H16Z"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">Bank Transfer</span>
+                                </div>
+                            </button>
+                            
+                            <button class="payment-method p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary-50 hover:text-primary transition-all" data-method="digital">
+                                <div class="flex flex-col items-center space-y-2">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                                    </svg>
+                                    <span class="text-sm font-medium">Digital Wallet</span>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Card Payment Form -->
+                        <div id="cardPaymentForm" class="payment-form">
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="cardNumber" class="block text-sm font-medium text-text-primary mb-2">Card Number</label>
+                                    <div class="relative">
+                                        <input type="text" id="cardNumber" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="1234 5678 9012 3456" maxlength="19">
+                                        <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                            <div class="flex space-x-1">
+                                                <svg class="w-8 h-5" viewBox="0 0 32 20" fill="none">
+                                                    <rect width="32" height="20" rx="4" fill="#EB001B"/>
+                                                    <rect x="12" width="8" height="20" rx="4" fill="#FF5F00"/>
+                                                    <rect x="16" width="16" height="20" rx="4" fill="#F79E1B"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label for="expiryDate" class="block text-sm font-medium text-text-primary mb-2">Expiry Date</label>
+                                        <input type="text" id="expiryDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="MM/YY" maxlength="5">
+                                    </div>
+                                    <div>
+                                        <label for="cvv" class="block text-sm font-medium text-text-primary mb-2">CVV</label>
+                                        <input type="text" id="cvv" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="123" maxlength="4">
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="cardName" class="block text-sm font-medium text-text-primary mb-2">Cardholder Name</label>
+                                    <input type="text" id="cardName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="John Smith">
+                                </div>
+                                
+                                <div>
+                                    <label for="billingAddress" class="block text-sm font-medium text-text-primary mb-2">Billing Address</label>
+                                    <textarea id="billingAddress" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="Enter your complete billing address"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bank Transfer Form -->
+                        <div id="bankPaymentForm" class="payment-form hidden">
+                            <div class="space-y-4">
+                                <div class="p-4 bg-primary-50 border border-primary-200 rounded-lg">
+                                    <h4 class="text-sm font-medium text-primary mb-2">Bank Transfer Instructions</h4>
+                                    <div class="space-y-2 text-sm text-text-secondary">
+                                        <p><strong>Bank Name:</strong> University Federal Bank</p>
+                                        <p><strong>Account Number:</strong> 1234567890</p>
+                                        <p><strong>Routing Number:</strong> 021000021</p>
+                                        <p><strong>Reference:</strong> STU001-FALL2025</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="bankConfirmation" class="block text-sm font-medium text-text-primary mb-2">Transfer Confirmation Number</label>
+                                    <input type="text" id="bankConfirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="Enter confirmation number after transfer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Wallet Form -->
+                        <div id="digitalPaymentForm" class="payment-form hidden">
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <button class="p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary-50 transition-all">
+                                        <div class="flex items-center justify-center space-x-2">
+                                            <div class="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">PAY</span>
+                                            </div>
+                                            <span class="font-medium">Apple Pay</span>
+                                        </div>
+                                    </button>
+                                    <button class="p-4 border-2 border-gray-200 rounded-lg hover:border-primary hover:bg-primary-50 transition-all">
+                                        <div class="flex items-center justify-center space-x-2">
+                                            <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                                                <span class="text-white text-xs font-bold">G</span>
+                                            </div>
+                                            <span class="font-medium">Google Pay</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <button class="w-full p-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                    <div class="flex items-center justify-center space-x-2">
+                                        <span class="font-medium">PayPal</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Payment Plan Options -->
+                        <div class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200">
+                            <h4 class="text-sm font-medium text-text-primary mb-3">Payment Plan Options</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center space-x-3">
+                                    <input type="radio" name="paymentPlan" value="full" checked class="h-4 w-4 text-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-text-secondary">Pay in full now</span>
+                                </label>
+                                <label class="flex items-center space-x-3">
+                                    <input type="radio" name="paymentPlan" value="monthly" class="h-4 w-4 text-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-text-secondary">Monthly installments (3.5% processing fee)</span>
+                                </label>
+                                <label class="flex items-center space-x-3">
+                                    <input type="radio" name="paymentPlan" value="semester" class="h-4 w-4 text-primary border-gray-300 focus:ring-primary">
+                                    <span class="text-sm text-text-secondary">Semester split (2 payments, 1.5% processing fee)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Payment Summary and Actions -->
+            <div class="space-y-6">
+                <!-- Payment Summary -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-6">Payment Summary</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="space-y-3" id="selectedFees">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-text-secondary">Fall 2025 Tuition</span>
+                                <span class="font-medium text-text-primary">₱1,850.00</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-text-secondary">Housing & Meals</span>
+                                <span class="font-medium text-text-primary">₱895.50</span>
+                            </div>
+                        </div>
+                        
+                        <hr class="border-gray-200">
+                        
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-text-secondary">Subtotal</span>
+                            <span class="font-medium text-text-primary" id="subtotal">₱2,745.50</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-text-secondary">Financial Aid Applied</span>
+                            <span class="font-medium text-success-600" id="financialAid">-₱1,500.00</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-text-secondary">Processing Fee</span>
+                            <span class="font-medium text-text-primary" id="processingFee">₱12.25</span>
+                        </div>
+                        
+                        <hr class="border-gray-200">
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-semibold text-text-primary">Total Due</span>
+                            <span class="text-lg font-bold text-primary" id="totalDue">₱1,257.75</span>
+                        </div>
+
+                        <!-- Scholarship/Discount Information -->
+                        <div class="mt-4 p-3 bg-success-50 border border-success-200 rounded-lg">
+                            <div class="flex items-start space-x-2">
+                                <svg class="w-4 h-4 text-success-600 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                                </svg>
+                                <div>
+                                    <h4 class="text-xs font-medium text-success-800">Active Discounts</h4>
+                                    <p class="text-xs text-success-600 mt-1">Merit Scholarship: ₱1,200.00</p>
+                                    <p class="text-xs text-success-600">Need-based Aid: ₱300.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Quick Actions</h3>
+                    
+                    <div class="space-y-3">
+                        <button class="w-full px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary-700 transition-colors font-medium" id="processPaymentBtn">
+                            <div class="flex items-center justify-center space-x-2">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                                </svg>
+                                <span>Process Secure Payment</span>
+                            </div>
+                        </button>
+                        
+                        <button class="w-full px-4 py-2 border border-gray-300 text-text-primary rounded-lg hover:bg-gray-50 transition-colors" id="savePaymentMethodBtn">
+                            Save Payment Method
+                        </button>
+                        
+                        <button class="w-full px-4 py-2 border border-primary text-primary rounded-lg hover:bg-primary-50 transition-colors" id="requestPaymentPlanBtn">
+                            Request Payment Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Payment History Preview -->
+                <div class="card p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-text-primary">Recent Payments</h3>
+                        <a href="javascript:void(0)" class="text-primary hover:text-primary-700 text-sm font-medium transition-colors">View All</a>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg border border-success-200">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-text-primary">Spring 2025 Tuition</p>
+                                <p class="text-xs text-text-secondary">September 15, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm font-bold text-success-600">₱1,850.00</span>
+                                <p class="text-xs text-success-600">Paid</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-3 bg-success-50 rounded-lg border border-success-200">
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-text-primary">Summer Session Fees</p>
+                                <p class="text-xs text-text-secondary">June 1, 2025</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm font-bold text-success-600">₱650.00</span>
+                                <p class="text-xs text-success-600">Paid</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Support -->
+                <div class="card p-6">
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Need Help?</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3 text-sm text-text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                            </svg>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3 text-sm text-text-secondary">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                            </svg>
+                            <span>billing@uniportal.edu</span>
+                        </div>
+                        
+                        <button class="w-full mt-3 px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-700 transition-colors text-sm">
+                            Live Chat Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Rules Notification -->
+        <div class="mt-8 p-4 bg-primary-50 border border-primary-200 rounded-lg">
+            <div class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-primary mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                </svg>
+                <div class="flex-1">
+                    <h4 class="text-sm font-medium text-primary">Payment Policy Information</h4>
+                    <p class="text-xs text-text-secondary mt-1">Registration holds will be automatically lifted upon successful payment completion. Late fees apply to overdue balances after the grace period. Payment confirmations and official receipts are generated immediately upon transaction approval.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-border py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <div class="flex items-center space-x-4">
+                    <p class="text-sm text-white">© 2025 UniPortal. All Rights Reserved.</p>
+                    <div class="flex items-center space-x-1 text-success-600">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                        </svg>
+                        <span class="text-xs">PCI DSS Compliant</span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 text-sm text-white">
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Payment Terms</a>
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="hover:text-white transition-colors">Security</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Processing Modal -->
+    <div id="paymentModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <div id="processingState" class="text-center">
+                <div class="w-16 h-16 mx-auto mb-4 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Processing Payment...</h3>
+                <p class="text-sm text-text-secondary">Please wait while we securely process your payment. Do not refresh or close this page.</p>
+            </div>
+            
+            <div id="successState" class="hidden text-center">
+                <div class="w-16 h-16 mx-auto mb-4 bg-success-100 rounded-full flex items-center justify-center">
+                    <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Payment Successful!</h3>
+                <p class="text-sm text-text-secondary mb-4">Your payment has been processed successfully. A confirmation email has been sent to your registered email address.</p>
+                <div class="space-y-2">
+                    <button id="downloadReceiptBtn" class="w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-700 transition-colors">
+                        Download Receipt
+                    </button>
+                    <button id="closeModalBtn" class="w-full px-4 py-2 border border-gray-300 text-text-primary rounded-lg hover:bg-gray-50 transition-colors">
+                        Close
+                    </button>
+                </div>
+            </div>
+            
+            <div id="errorState" class="hidden text-center">
+                <div class="w-16 h-16 mx-auto mb-4 bg-error-100 rounded-full flex items-center justify-center">
+                    <svg class="w-8 h-8 text-error" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-text-primary mb-2">Payment Failed</h3>
+                <p class="text-sm text-text-secondary mb-4" id="errorMessage">Your payment could not be processed. Please check your payment information and try again.</p>
+                <button id="retryPaymentBtn" class="w-full px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary-700 transition-colors">
+                    Try Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Payment Processing -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Payment method selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const paymentForms = document.querySelectorAll('.payment-form');
+
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', function() {
+                // Remove active class from all methods
+                paymentMethods.forEach(m => {
+                    m.classList.remove('active', 'border-primary', 'bg-primary-50', 'text-primary');
+                    m.classList.add('border-gray-200');
+                });
+                
+                // Hide all forms
+                paymentForms.forEach(form => form.classList.add('hidden'));
+                
+                // Activate selected method
+                this.classList.add('active', 'border-primary', 'bg-primary-50', 'text-primary');
+                this.classList.remove('border-gray-200');
+                
+                // Show corresponding form
+                const methodType = this.dataset.method;
+                document.getElementById(`${methodType}PaymentForm`).classList.remove('hidden');
+            });
+        });
+
+        // Fee selection and calculation
+        const feeCheckboxes = document.querySelectorAll('.fee-checkbox');
+        const selectAllBtn = document.getElementById('selectAllBtn');
+        
+        function updatePaymentSummary() {
+            let subtotal = 0;
+            const selectedFeesContainer = document.getElementById('selectedFees');
+            selectedFeesContainer.innerHTML = '';
+            
+            feeCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const amount = parseFloat(checkbox.value);
+                    subtotal += amount;
+                    
+                    // Get fee name from parent element
+                    const feeName = checkbox.closest('.fee-item').querySelector('h4').textContent;
+                    
+                    // Add to summary
+                    const feeElement = document.createElement('div');
+                    feeElement.className = 'flex items-center justify-between text-sm';
+                    feeElement.innerHTML = `
+                        <span class="text-text-secondary">${feeName}</span>
+                        <span class="font-medium text-text-primary">₱${amount.toFixed(2)}</span>
+                    `;
+                    selectedFeesContainer.appendChild(feeElement);
+                }
+            });
+            
+            // Calculate totals
+            const financialAid = 1500.00;
+            const processingFeeRate = 0.0045; // 0.45%
+            const processingFee = Math.max(subtotal * processingFeeRate, 2.50); // Minimum $2.50
+            const totalDue = subtotal - financialAid + processingFee;
+            
+            // Update display
+            document.getElementById('subtotal').textContent = `₱${subtotal.toFixed(2)}`;
+            document.getElementById('processingFee').textContent = `₱${processingFee.toFixed(2)}`;
+            document.getElementById('totalDue').textContent = `₱${Math.max(totalDue, 0).toFixed(2)}`;
+            
+            // Enable/disable payment button
+            const processPaymentBtn = document.getElementById('processPaymentBtn');
+            if (subtotal > 0) {
+                processPaymentBtn.disabled = false;
+                processPaymentBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                processPaymentBtn.disabled = true;
+                processPaymentBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+        
+        feeCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updatePaymentSummary);
+        });
+        
+        selectAllBtn.addEventListener('click', function() {
+            const allChecked = Array.from(feeCheckboxes).every(cb => cb.checked);
+            feeCheckboxes.forEach(checkbox => {
+                checkbox.checked = !allChecked;
+            });
+            this.textContent = allChecked ? 'Select All' : 'Clear All';
+            updatePaymentSummary();
+        });
+
+        // Card number formatting
+        const cardNumberInput = document.getElementById('cardNumber');
+        const expiryDateInput = document.getElementById('expiryDate');
+        
+        if (cardNumberInput) {
+            cardNumberInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                e.target.value = formattedValue;
+            });
+        }
+        
+        if (expiryDateInput) {
+            expiryDateInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+        }
+
+        // Payment processing
+        const processPaymentBtn = document.getElementById('processPaymentBtn');
+        const paymentModal = document.getElementById('paymentModal');
+        const processingState = document.getElementById('processingState');
+        const successState = document.getElementById('successState');
+        const errorState = document.getElementById('errorState');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const retryPaymentBtn = document.getElementById('retryPaymentBtn');
+        
+        processPaymentBtn.addEventListener('click', function() {
+            // Validate form based on selected payment method
+            const activeMethod = document.querySelector('.payment-method.active').dataset.method;
+            
+            if (activeMethod === 'card') {
+                if (!validateCardForm()) {
+                    return;
+                }
+            }
+            
+            // Show modal and start processing
+            paymentModal.classList.remove('hidden');
+            processingState.classList.remove('hidden');
+            successState.classList.add('hidden');
+            errorState.classList.add('hidden');
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                // Random success/failure for demo
+                const success = Math.random() > 0.2; // 80% success rate
+                
+                processingState.classList.add('hidden');
+                
+                if (success) {
+                    successState.classList.remove('hidden');
+                    // Update fee statuses
+                    updateFeeStatuses();
+                    // Send notifications
+                    showNotification('Payment processed successfully! Registration holds have been lifted.', 'success');
+                } else {
+                    errorState.classList.remove('hidden');
+                    const errorMessages = [
+                        'Insufficient funds in your account.',
+                        'Card declined by your bank.',
+                        'Invalid card information provided.',
+                        'Network error occurred during processing.'
+                    ];
+                    const randomError = errorMessages[Math.floor(Math.random() * errorMessages.length)];
+                    document.getElementById('errorMessage').textContent = randomError;
+                }
+            }, 3000);
+        });
+        
+        function validateCardForm() {
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+            const cardName = document.getElementById('cardName').value;
+            
+            if (!cardNumber || cardNumber.replace(/\s/g, '').length < 13) {
+                showNotification('Please enter a valid card number.', 'error');
+                return false;
+            }
+            
+            if (!expiryDate || expiryDate.length < 5) {
+                showNotification('Please enter a valid expiry date.', 'error');
+                return false;
+            }
+            
+            if (!cvv || cvv.length < 3) {
+                showNotification('Please enter a valid CVV.', 'error');
+                return false;
+            }
+            
+            if (!cardName) {
+                showNotification('Please enter the cardholder name.', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        function updateFeeStatuses() {
+            feeCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const feeItem = checkbox.closest('.fee-item');
+                    feeItem.classList.remove('bg-error-50', 'border-error-200', 'bg-warning-50', 'border-warning-200');
+                    feeItem.classList.add('bg-success-50', 'border-success-200');
+                    
+                    const statusBadge = feeItem.querySelector('.inline-flex');
+                    statusBadge.className = 'inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-success-100 text-success-800';
+                    statusBadge.textContent = 'Paid';
+                }
+            });
+        }
+        
+        closeModalBtn.addEventListener('click', function() {
+            paymentModal.classList.add('hidden');
+            // Refresh page to show updated statuses
+            setTimeout(() => location.reload(), 500);
+        });
+        
+        retryPaymentBtn.addEventListener('click', function() {
+            paymentModal.classList.add('hidden');
+        });
+
+        // Download receipt functionality
+        document.getElementById('downloadReceiptBtn').addEventListener('click', function() {
+            // Generate receipt PDF (simulation)
+            showNotification('Receipt downloaded successfully!', 'success');
+        });
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg z-50 max-w-md ${
+                type === 'success' ? 'bg-success-100 text-success-800 border border-success-200' :
+                type === 'warning' ? 'bg-warning-100 text-warning-800 border border-warning-200' :
+                type === 'error' ? 'bg-error-100 text-error-800 border border-error-200' :
+                'bg-primary-100 text-primary-800 border border-primary-200'
+            }`;
+            
+            notification.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,17C11.45,17 11,16.55 11,16C11,15.45 11.45,15 12,15C12.55,15 13,15.45 13,16C13,16.55 12.55,17 12,17M12,15A1.5,1.5 0 0,1 10.5,13.5A1.5,1.5 0 0,1 12,12A1.5,1.5 0 0,1 13.5,13.5A1.5,1.5 0 0,1 12,15M13.5,8H10.5V6.5C10.5,5.67 11.17,5 12,5C12.83,5 13.5,5.67 13.5,6.5V8Z"/>
+                    </svg>
+                    <span class="text-sm font-medium">${message}</span>
+                    <button class="ml-auto text-current opacity-70 hover:opacity-100" onclick="this.parentElement.parentElement.remove()">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Business rules validation
+        function validatePaymentRules() {
+            // Check if student is eligible for enrollment based on payment status
+            const totalOutstanding = Array.from(feeCheckboxes).reduce((sum, cb) => {
+                return cb.checked ? sum + parseFloat(cb.value) : sum;
+            }, 0);
+            
+            if (totalOutstanding > 5000) {
+                showNotification('Payment plan required for amounts over ₱5,000. Please contact the bursar office.', 'warning');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Initialize payment summary
+        updatePaymentSummary();
+
+        // Auto-save payment preferences (simulation)
+        document.getElementById('savePaymentMethodBtn').addEventListener('click', function() {
+            showNotification('Payment method saved securely for future transactions.', 'success');
+        });
+
+        // Payment plan request
+        document.getElementById('requestPaymentPlanBtn').addEventListener('click', function() {
+            showNotification('Payment plan request submitted. You will receive an email within 24 hours.', 'info');
+        });
+
+        // Real-time payment status updates (simulation)
+        setInterval(() => {
+            // Simulate real-time updates from payment processor
+            const pendingPayments = document.querySelectorAll('.fee-item.bg-warning-50');
+            if (pendingPayments.length > 0 && Math.random() > 0.95) {
+                showNotification('Payment status update: Your bank transfer is being processed.', 'info');
+            }
+        }, 30000);
+
+        // Security timeout for payment page
+        let securityTimeout;
+        function resetSecurityTimeout() {
+            clearTimeout(securityTimeout);
+            securityTimeout = setTimeout(() => {
+                showNotification('For your security, this payment session will expire in 2 minutes due to inactivity.', 'warning');
+            }, 18 * 60 * 1000); // 18 minutes
+        }
+
+        // Reset timeout on user activity
+        ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+            document.addEventListener(event, resetSecurityTimeout, true);
+        });
+
+        // Initialize security timeout
+        resetSecurityTimeout();
+
+        // Payment plan calculator
+        const paymentPlanRadios = document.querySelectorAll('input[name="paymentPlan"]');
+        paymentPlanRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                updatePaymentSummary();
+                if (this.value === 'monthly') {
+                    showNotification('Monthly payment plan selected. 3.5% processing fee will be added to each installment.', 'info');
+                } else if (this.value === 'semester') {
+                    showNotification('Semester payment plan selected. 1.5% processing fee will be applied.', 'info');
+                }
+            });
+        });
+
+        // Accessibility enhancements
+        document.addEventListener('keydown', function(e) {
+            // ESC key closes modal
+            if (e.key === 'Escape' && !paymentModal.classList.contains('hidden')) {
+                paymentModal.classList.add('hidden');
+            }
+        });
+
+        // Form validation enhancements
+        const formInputs = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.classList.add('border-error');
+                    this.classList.remove('border-gray-300');
+                } else {
+                    this.classList.remove('border-error');
+                    this.classList.add('border-gray-300');
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
